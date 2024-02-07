@@ -1,5 +1,6 @@
 import 'package:bookly/features/home/presentaion/views/book_details_view.dart';
 import 'package:bookly/features/home/presentaion/views/home_view.dart';
+import 'package:bookly/features/search/presentaion/views/search_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/splash/presentation/views/splash_view.dart';
@@ -7,6 +8,7 @@ import '../../features/splash/presentation/views/splash_view.dart';
 abstract class AppRouter {
   static const KHomeViewPath = '/homeView';
   static const KDetailsBookViewPath = '/detailsView';
+  static const KSearchView = '/searchView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -19,6 +21,10 @@ abstract class AppRouter {
     GoRoute(
       path: KDetailsBookViewPath,
       builder: (context, state) => const BookDetailsView(),
+    ),
+    GoRoute(
+      path: KSearchView,
+      builder: (context, state) => const SearchView(),
     ),
   ]);
 }
