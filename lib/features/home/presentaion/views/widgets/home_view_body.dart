@@ -1,4 +1,3 @@
-
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -11,27 +10,27 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return const CustomScrollView(
       slivers: [
-      SliverToBoxAdapter(
-        child:Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomAppBar(),
-            FeaturedBookListView(),
-            SizedBox(height: 30,),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text("Best Seller",
-                style: Styles.textStyle18,
+        SliverToBoxAdapter(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CustomAppBar(),
+              FeaturedBookListView(),
+              SizedBox(
+                height: 30,
               ),
-            ),
-
-
-          ],
-        ) ,
-      ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  "Best Seller",
+                  style: Styles.textStyle18,
+                ),
+              ),
+            ],
+          ),
+        ),
         SliverFillRemaining(
           child: BestSellerListView(),
         )
@@ -39,6 +38,3 @@ class HomeViewBody extends StatelessWidget {
     );
   }
 }
-
-
-

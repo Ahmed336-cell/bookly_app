@@ -3,6 +3,7 @@ import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'sliding_text.dart';
+
 class SplashBodyView extends StatefulWidget {
   const SplashBodyView({super.key});
 
@@ -10,7 +11,8 @@ class SplashBodyView extends StatefulWidget {
   State<SplashBodyView> createState() => _SplashBodyViewState();
 }
 
-class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProviderStateMixin {
+class _SplashBodyViewState extends State<SplashBodyView>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
@@ -18,11 +20,9 @@ class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProvid
   void initState() {
     super.initState();
 
-  initSlidingAnimation();
- navigateToHome();
-
+    initSlidingAnimation();
+    navigateToHome();
   }
-
 
   @override
   void dispose() {
@@ -30,6 +30,7 @@ class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProvid
     //when animation finish dispose it
     animationController.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,20 +45,23 @@ class _SplashBodyViewState extends State<SplashBodyView> with SingleTickerProvid
       ],
     );
   }
-  void initSlidingAnimation(){
+
+  void initSlidingAnimation() {
     //controller
-    animationController = AnimationController(vsync: this,duration: const Duration(seconds: 1));
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
     //animation that change values
-    slidingAnimation=Tween<Offset>(begin:const Offset(0,3) ,end:Offset.zero ).animate(animationController);
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 3), end: Offset.zero)
+            .animate(animationController);
     animationController.forward();
   }
-  void navigateToHome(){
-    Future.delayed(const Duration(seconds: 2),()
-    {
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 2), () {
       GoRouter.of(context).pushReplacement(AppRouter.KHomeViewPath);
 
       // Get.to(() => const HomeView(),transition: Transition.rightToLeft,duration: kTransitionDuration);
     });
   }
 }
-
