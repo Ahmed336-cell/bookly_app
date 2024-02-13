@@ -18,12 +18,9 @@ class HomeRepoImo implements HomeRepo {
           "volumes?Filtering=free-ebooks&q=computer science&Sorting=newest");
       List<BookModel> books = [];
       for (var items in data['items']) {
-        try{
           books.add(BookModel.fromJson(items));
 
-        }catch(e){
-          books.add(BookModel.fromJson(items));
-        }
+
       }
 
       return right(books);
