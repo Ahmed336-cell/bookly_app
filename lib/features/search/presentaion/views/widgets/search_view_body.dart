@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../../home/presentaion/views/widgets/book_list_view_item.dart';
 import 'custom_search_textfeild.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -37,7 +36,8 @@ class SearchResultListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
-            child: BookListViewItem(),
+            // child: BookListViewItem(),
+            child: Text("helllo"),
           );
         });
   }
