@@ -15,10 +15,15 @@ class HomeRepoImo implements HomeRepo {
     try {
       var data = await apiService.get(
           endpoint:
-          "volumes?Filtering=free-ebooks&q=subject:Programming&Sorting=newest");
+          "volumes?Filtering=free-ebooks&q=computer science&Sorting=newest");
       List<BookModel> books = [];
       for (var items in data['items']) {
-        books.add(BookModel.fromJson(items));
+        try{
+          books.add(BookModel.fromJson(items));
+
+        }catch(e){
+          books.add(BookModel.fromJson(items));
+        }
       }
 
       return right(books);
