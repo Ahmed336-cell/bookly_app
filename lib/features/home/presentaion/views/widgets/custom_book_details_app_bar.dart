@@ -1,9 +1,10 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomAppBarBookDetails extends StatelessWidget {
-  const CustomAppBarBookDetails({super.key});
-
+  const CustomAppBarBookDetails({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,7 +19,8 @@ class CustomAppBarBookDetails extends StatelessWidget {
               color: Colors.white,
             )),
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: const Icon(
               Icons.shopping_cart_outlined,
               color: Colors.white,
